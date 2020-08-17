@@ -5,5 +5,5 @@
          $ {{stock.price}}
      </div>
     <button (click)="toggleFavorite($event)"
-            [disabled]="stock.favorite">Add to Favorites</button>
+            *ngIf="!stock.favorite">Add to Favorites</button>
 </div>
