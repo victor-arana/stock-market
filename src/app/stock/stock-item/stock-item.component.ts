@@ -1,4 +1,4 @@
-import { Component, Input , Output, EventEmitter} from '@angular/core';
+import { Component, Input , Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import { Stock } from '../../model/stock';
 
 @Component({
@@ -6,7 +6,7 @@ import { Stock } from '../../model/stock';
   templateUrl: './stock-item.component.html',
   styleUrls: ['./stock-item.component.css']
 })
-export class StockItemComponent {
+export class StockItemComponent implements OnChanges{
 
   @Input() public stock: Stock;
   @Output() private toggleFavorite: EventEmitter<Stock>
@@ -15,6 +15,10 @@ export class StockItemComponent {
   constructor() {
     this.toggleFavorite = new EventEmitter<Stock>();
    }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Stock Item Component - On Changes - ', changes);    
+  }
 
   onToggleFavorite(event){
     this.toggleFavorite.emit(this.stock);
