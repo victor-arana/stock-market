@@ -1,1 +1,13 @@
-<p>create-stock works!</p>
+<h2>Create Stock Form</h2>
+<div class="form-group">
+    <form>
+        <div class="stock-name">
+            <input type="text"
+                    placeholder="Stock Name"
+                    [value]="stock.name"
+                    (input)="stock.name=$event.target.value">
+        </div>
+        <button (click)="stock.name">Reset stock name</button>
+        <h4>Stock Name is {{stock.name}}</h4>
+    </form>
+</div>
