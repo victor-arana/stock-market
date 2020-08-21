@@ -1,0 +1,7 @@
+.stock-name .ng-valid{
+    background-color: green;
+}
+
+.stock-name .ng-invalid{
+    background-color: pink;
+}

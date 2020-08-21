@@ -1,9 +1,16 @@
 <h2>Create Stock Form</h2>
 <div class="form-group">
     <form (ngSubmit)="createStock()">
+        <div>
+            The following element changes from green to red
+            when it is invalid
+        </div>
         <div class="stock-name">
-            <input type="text" placeholder="Stock Name"
-                    name="stockName" [(ngModel)]="stock.name">
+            <input type="text" 
+                   placeholder="Stock Name"
+                   required
+                   name="stockName" 
+                   [(ngModel)]="stock.name">
         </div>
         <div class="stock-code">
             <input type="text" placeholder="Stock Code"
