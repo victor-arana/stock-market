@@ -12,15 +12,26 @@
                    name="stockName" 
                    [(ngModel)]="stock.name">
         </div>
-        <div class="stock-code">
-            <input type="text" placeholder="Stock Code"
-                    name="stockCode" [(ngModel)]="stock.code">
+        <div>
+            The following element changes from green to red
+            when it has been modified
         </div>
-
+        <div class="stock-code">
+            <input type="text" 
+                    placeholder="Stock Code"
+                    name="stockCode" 
+                    [(ngModel)]="stock.code">
+        </div>
+        <div>
+            The following element changes from green to red
+            when it is visited by the user, regardless of change
+        </div>
         <div class="stock-price">
-            <input type="number" placeholder="Stock Price"
-                    name="stockPrice" [ngModel]="stock.price"
-                    (ngModelChange)="setStockPrice($event)">
+            <input type="number" 
+                   placeholder="Stock Price"
+                   name="stockPrice" 
+                   [ngModel]="stock.price"
+                   (ngModelChange)="setStockPrice($event)">
         </div>
         <div class="stock-exchange">
             <select name="stockExchange" [(ngModel)]="stock.exchange">
@@ -35,5 +46,6 @@
 
         <button [disabled]="!confirmed" type="submit">Create</button>
         <h4>Stock Name is {{stock | json}}</h4>
+        <h4>Data has been confirmed: {{confirmed}}</h4>
     </form>
 </div>
