@@ -9,11 +9,19 @@ import { Stock } from 'src/app/model/stock';
 export class CreateStockComponent {
 
   public stock: Stock;
+  public confirmed = false;
 
-  constructor() { }
+  constructor() { 
+    this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
+  }
 
-  ngOnInit(): void {
-    this.stock = new Stock('test', '', 0, 0);
+  setStockPrice(price){
+    this.stock.price = price;
+    this.stock.previousPrice = price;
+  }
+
+  createStock(){
+    console.log('Creating stock ', this.stock);
   }
 
 }
