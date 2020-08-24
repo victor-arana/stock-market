@@ -20,4 +20,8 @@ export class StockListComponent implements OnInit {
     ]
   }
 
+  onToggleFavorite(stock: Stock){
+    console.log('Favorite for stock ', stock, ' was triggered');
+    stock.favorite = !stock.favorite;
+  }
 }
