@@ -1,5 +1,6 @@
 <div class="stock-container">
     <div class="name">{{stock.name + ' (' + stock.code + ')'}}</div>
+    <div class="exchange">{{stock.exchange}}</div>
     <div class="price"
          [class]="stock.isPositiveChange() ? 'positive' : 'negative' ">
          $ {{stock.price}}
