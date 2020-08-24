@@ -7,4 +7,6 @@
      </div>
     <button (click)="onToggleFavorite($event)"
             *ngIf="!stock.favorite">Add to Favorites</button>
+    <button (click)="onToggleFavorite($event)"
+            *ngIf="stock.favorite">Remove from Favorites</button>
 </div>
