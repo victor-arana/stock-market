@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Stock } from 'src/app/model/stock';
+import { StockService } from 'src/app/services/stock.service';
 
 @Component({
   selector: 'app-create-stock',
@@ -10,9 +11,10 @@ export class CreateStockComponent {
 
   public stock: Stock;
   public confirmed = false;
+  public message = null;
   public exchanges = ['NYSE', 'NASDAQ', 'OTHER'];
 
-  constructor() { 
+  constructor(private stockService: StockService) { 
     this.stock = new Stock('test', '', 0, 0, 'NASDAQ');
   }
 
@@ -24,7 +26,14 @@ export class CreateStockComponent {
   createStock(stockForm){
     console.log('Stock form ', stockForm);
     if(stockForm.valid){
-      console.log('Creating stock ', this.stock);
+      let created = this.stockService.createStock(this.stock);
+      if(created){
+        this.message = 'Successfully created stock with stock code: '
+          + this.stock.code;
+      } else{
+        this.message = 'Stock with stock code: ' + this.stock.code
+          + ' already exists';
+      }
     } else{
       console.error('Stock form is in an invalid state');
     }
