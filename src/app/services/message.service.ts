@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MessageService {
 
+  public message: string = null;
+  
   constructor() { }
 }
