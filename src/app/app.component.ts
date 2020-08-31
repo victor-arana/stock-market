@@ -9,9 +9,9 @@ import { Stock } from './model/stock';
 export class AppComponent implements OnInit{
   title = 'stock-market';
 
-  public stockObj: Stock;
+  public stock: Stock;
 
   ngOnInit(): void{
-    this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80);
+    this.stock = new Stock('Test Stock Company', 'TSC', 85, 80);
   }
 }
